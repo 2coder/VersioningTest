@@ -1,0 +1,15 @@
+name: New Branch Created
+
+on: create
+
+jobs:
+  New-Feature-Branch:
+    name: New Feature Branch created
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.ref, 'refs/heads/feature/') }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Check all version.json
+        run: .github/scripts/CheckVersionPreReleaseTags.ps1
