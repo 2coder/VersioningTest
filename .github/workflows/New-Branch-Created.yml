@@ -12,4 +12,5 @@ jobs:
         with:
           fetch-depth: 0
       - name: Check all version.json
+        shell: pwsh
         run: .github/scripts/CheckVersionPreReleaseTags.ps1
